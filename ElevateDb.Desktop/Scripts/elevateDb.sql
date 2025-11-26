@@ -1,0 +1,26 @@
+-- CREATE DATABASE "Tutorial"
+-- PATH 'C:\Tutorial\DB'
+-- DESCRIPTION 'Tutorial Database'
+-- 
+-- CREATE TABLE "Customer"
+-- (
+-- "ID" INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 0, INCREMENT BY 1),
+-- "Name" VARCHAR(30) COLLATE "UNI_CI" NOT NULL,
+-- "Address1" VARCHAR(40) COLLATE "UNI_CI",
+-- "Address2" VARCHAR(40) COLLATE "UNI_CI",
+-- "City" VARCHAR(30) COLLATE "UNI_CI",
+-- "State" CHAR(2) COLLATE "UNI_CI",
+-- "Zip" CHAR(10) COLLATE "UNI_CI",
+-- "CreatedOn" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+-- CONSTRAINT "ID_PrimaryKey" PRIMARY KEY ("ID")
+-- )
+-- 
+-- INSERT INTO "Customer" VALUES
+-- (NULL,
+-- 'Elevate Software, Inc.',
+-- '168 Christiana Street',
+-- '',
+-- 'North Tonawanda',
+-- 'NY',
+-- '14120',
+-- NULL)

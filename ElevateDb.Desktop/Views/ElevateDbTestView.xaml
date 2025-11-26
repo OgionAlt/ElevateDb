@@ -18,10 +18,144 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="ELEVATE DB TESTS" />
-        <Button
-            Grid.Row="1"
-            Command="{Binding ElevateDbTestCommand}"
-            Content="Test" />
+        <GroupBox Grid.Row="0" Header="ElevateDB connection settings">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Style="{StaticResource SeparatorRowStyle}" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Style="{StaticResource SeparatorColumnStyle}" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  DB Connection String Params  -->
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Style="{StaticResource SeparatorRowStyle}" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Style="{StaticResource SeparatorRowStyle}" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Style="{StaticResource SeparatorRowStyle}" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Style="{StaticResource SeparatorRowStyle}" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Style="{StaticResource SeparatorColumnStyle}" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  ROW  -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="User:" />
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="{Binding DbUser}" />
+
+                    <!--  ROW  -->
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="Password:" />
+                    <TextBox
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="{Binding DbPassword}" />
+
+                    <!--  ROW  -->
+                    <Label
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="DB Path:" />
+                    <TextBox
+                        Grid.Row="4"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="{Binding DbPath}" />
+
+                    <!--  ROW  -->
+                    <Label
+                        Grid.Row="6"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="DB Name:" />
+                    <TextBox
+                        Grid.Row="6"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="{Binding DbName}" />
+
+                    <!--  ROW  -->
+                    <Button
+                        Grid.Row="8"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Command="{Binding ApplyAndTestDbConnectionCommand}"
+                        Content="Apply &amp; Test Connection"
+                        Style="{StaticResource ApplyAndTestDbConnectionButton}" />
+                </Grid>
+
+                <!--  DB Connection String DSN  -->
+                <Grid Grid.Row="0" Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Style="{StaticResource SeparatorColumnStyle}" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--  ROW  -->
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        Content="DSN:" />
+                    <TextBox
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        Text="{Binding OdbcDsn}" />
+
+                    <!--  ROW  -->
+                    <Button
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Command="{Binding ApplyAndTestDbDsnConnectionCommand}"
+                        Content="Apply &amp; Test Connection (DSN)"
+                        Style="{StaticResource ApplyAndTestDbConnectionButton}" />
+                </Grid>
+
+                <Border
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    Padding="5"
+                    HorizontalAlignment="Center"
+                    BorderBrush="Black"
+                    BorderThickness="1">
+                    <TextBlock Text="{Binding CurrentDbConnectionString, UpdateSourceTrigger=PropertyChanged}" />
+                </Border>
+
+            </Grid>
+
+        </GroupBox>
     </Grid>
 </UserControl>

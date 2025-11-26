@@ -7,16 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModels="clr-namespace:ElevateDb.Desktop.ViewModels"
     xmlns:views="clr-namespace:ElevateDb.Desktop.Views"
-    Title="MainWindow"
+    Title="ElevateDB playground"
     Width="800"
     Height="450"
     d:DataContext="{d:DesignInstance viewModels:MainViewModel,
                                      IsDesignTimeCreatable=False}"
     mc:Ignorable="d">
     <Grid>
-        <TabControl>
-            <TabItem Header="ElevateDB tests">
+        <TabControl Margin="5">
+            <TabItem Header="ElevateDB Connection">
                 <views:ElevateDbTestView DataContext="{Binding ElevateDbTestViewModel}" />
+            </TabItem>
+            <TabItem Header="ElevateDB Tests">
+                <views:ElevateDbDataView DataContext="{Binding ElevateDbDataViewModel}" />
             </TabItem>
         </TabControl>
     </Grid>
