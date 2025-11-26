@@ -69,13 +69,15 @@ DATABASE=Tutorial";
                             cmd.CommandText = "SELECT * FROM Customer";
                             using (var reader = cmd.ExecuteReader())
                             {
-                                // Get column names
-                                var columnNames = new List<string>();
+                                // Get column names and data types
+                                var columnInfo = new List<string>();
                                 for (int i = 0; i < reader.FieldCount; i++)
                                 {
-                                    columnNames.Add(reader.GetName(i));
+                                    var name = reader.GetName(i);
+                                    var type = reader.GetDataTypeName(i);
+                                    columnInfo.Add($"{name} ({type})");
                                 }
-                                customers.AppendLine(string.Join("\t", columnNames));
+                                customers.AppendLine(string.Join("\t", columnInfo));
 
                                 // Get row data
                                 while (reader.Read())
